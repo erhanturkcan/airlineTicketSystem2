@@ -1,0 +1,370 @@
+{
+	"info": {
+		"_postman_id": "347b6f03-577c-4b4e-a0e8-108d260258f3",
+		"name": "Writing test scripts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "erhan",
+			"item": [
+				{
+					"name": "http://localhost:8080/addAirport",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"airportDto\": {\r\n        \"code\": \"SAW\",\r\n        \"name\": \"SABIHA GOKCEN HAVALIMANI\",\r\n        \"status\": \"A\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/addAirport",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"addAirport"
+							]
+						},
+						"description": "add airport."
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/addAirwayCompany",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"airwayCompanyDto\": {\n        \"code\": \"THY\",\n        \"name\": \"TURK HAVA YOLLARI\",\n        \"status\": \"A\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/addAirwayCompany",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"addAirwayCompany"
+							]
+						},
+						"description": "add airway company"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/addAirwayFlying",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"airwayFlyingDto\": {\n        \"code\": \"FLY001\",\n        \"airwayCode\": \"THY\",\n        \"routeCode\": \"1001\",\n        \"quota\": \"10\",\n        \"ticketPrice\":\"100\",\n        \"sellPrice\":\"100\",\n        \"status\": \"A\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/addAirwayFlying",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"addAirwayFlying"
+							]
+						},
+						"description": "airway add flying"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/addRoute",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"routeDto\": {\n        \"code\": \"ROU002\",\n        \"departFrom\": \"IST\",\n        \"destination\": \"ANK\",\n        \"estimatedFlyTime\": \"1h30m\",\n        \"status\": \"A\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/addRoute",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"addRoute"
+							]
+						},
+						"description": "add route"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/sellTicket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ticketDto\": {\n        \"airwayCode\": \"THY\",\n        \"code\": \"PNR001\",\n        \"airwayFlyingCode\": \"FLY001\",\n        \"name\": \"ERHAN TURKCAN1\",\n        \"flyDate\": \"2020-11-05T11:59:11.332Z\",\n        \"creditCard\": \"3566002020360505\",\n        \"price\":\"100\",\n        \"status\": \"A\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/sellTicket",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sellTicket"
+							]
+						},
+						"description": "sell ticket failure"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/searchAirportByCode/SAW",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/searchAirportByCode/SAW",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"searchAirportByCode",
+								"SAW"
+							]
+						},
+						"description": "search by code"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/searchRouteByCodeorDepartFrom?code=ROU002&departFrom=IST",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/searchRouteByCodeorDepartFrom?code=ROU002&departFrom=IST",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"searchRouteByCodeorDepartFrom"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "ROU002"
+								},
+								{
+									"key": "departFrom",
+									"value": "IST"
+								}
+							]
+						},
+						"description": "getroute code and departfrom"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/searchAirwayFlyingByAirwayCode/THY",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/searchAirwayFlyingByAirwayCode/THY",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"searchAirwayFlyingByAirwayCode",
+								"THY"
+							]
+						},
+						"description": "search airway flying by airwayCode"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/searchTicketByName/ERHAN",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/searchTicketByName/ERHAN",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"searchTicketByName",
+								"ERHAN"
+							]
+						},
+						"description": "search ticket by name "
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/searchTicketByCode/PNR001",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/searchTicketByCode/PNR001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"searchTicketByCode",
+								"PNR001"
+							]
+						},
+						"description": "search ticket by Code"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:8080/cacelTicketByCode/PNR001",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/cacelTicketByCode/PNR001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cacelTicketByCode",
+								"PNR001"
+							]
+						},
+						"description": "cancel ticket"
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "06d2bb9a-e55f-431e-b124-98ce9a7c4fd8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "99d9d036-7a45-484d-9164-35ba6cdd3c7c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

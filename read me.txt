@@ -1,0 +1,31 @@
+servislerle ilgili request response postman dokumanı "Writing test scripts.postman_collaction.json" icinde bulabilirsiniz.
+
+
+http://localhost:8080/addAirport --hava limanı ekleme servisi
+http://localhost:8080/addAirwayCompany -- havayolu sirketi ekleme servisi
+http://localhost:8080/addAirwayFlying --uçuş ekleme servisi
+http://localhost:8080/addRoute -- rota ekleme servisi
+http://localhost:8080/sellTicket -- bilet satis servisi
+http://localhost:8080/searchAirportByCode/SAW --havalimanı kodu ile havalimanı bilgileri alabileceğimiz servis
+http://localhost:8080/searchRouteByCodeorDepartFrom?code=ROU002&departFrom=IST --rota aramak icin yazılan servis. code ve departFrom ile aranabilir.
+http://localhost:8080/searchAirwayFlyingByAirwayCode/THY --sirket kodu ile uçuş arama servisi
+http://localhost:8080/searchTicketByName/ERHAN --bilet arama servisi bilet ismi ile aranabilir.
+http://localhost:8080/searchTicketByCode/PNR001 -- code (PNR) ile bilet arama servisi.
+http://localhost:8080/cacelTicketByCode/PNR001  -- code(PNR) ile bilet iptal etme servisi. statuyu (C)ancel a çeker.
+
+NOTES:
+	*	Uçuş sorgulamada eger sorgulanan uçuşta satılan bilet sayısı her %10 artışta bilet fiyatına %10 zam yapar.
+	*	H2 db kullanılmıştır. bilgilerine application.properties dosyasından erisilebilir.
+	*	Base bir response ile status ve varsa hata kodu hata açıklaması ile belirtilmitir.
+	*	Arama kriterleri net verilmediği için genel olarak code ve name ile arama servisleri yazılmıştır.
+	*	Kredi kartı validasyonu yapılmaktadır. Valid olmayan kredi kartı response da FAILURE olarak statude ve errorid desc ile belirtilmiştir.
+	*   Kredi kartı bilgileri mask işlemi uygulanmıştır.
+	*	Kredi kartı için bilinmeyen karakterler temizlendi. 
+	
+	
+	
+	
+* kredi kartı validasyonu için regex stackoverflow dan alınmıştır
+https://stackoverflow.com/questions/9315647/regex-credit-card-number-tests	
+	
+	

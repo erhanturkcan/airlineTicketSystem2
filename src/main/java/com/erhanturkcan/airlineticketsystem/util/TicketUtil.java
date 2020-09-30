@@ -3,8 +3,6 @@ package com.erhanturkcan.airlineticketsystem.util;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 
-import javax.swing.text.NumberFormatter;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -26,12 +24,12 @@ public class TicketUtil {
 		BigDecimal basePrice = airwayFlyingDto.getTicketPrice();
 
 		int raiseCount = (int) Math.floor(soldTicketPersistance / 10);
-		if (raiseCount<10) {			
+		if (raiseCount < 10) {
 			for (int i = 0; i < raiseCount; i++) {
 				basePrice = basePrice.add(basePrice.multiply((new BigDecimal(ticketRaisePersistance))));
 			}
 			airwayFlyingDto.setSellPrice(new BigDecimal(NumberFormat.getInstance().format(basePrice)));
-		}else {
+		} else {
 			airwayFlyingDto.setSellPrice(BigDecimal.ZERO);
 		}
 		return airwayFlyingDto;
